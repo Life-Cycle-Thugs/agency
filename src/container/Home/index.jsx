@@ -4,6 +4,7 @@ import Partner from './Partner';
 import Service from './Service';
 import Team from './Team';
 import Project from './Project';
+import Subscribe from './Subscribe';
 
 const Home = () => {
     return (
@@ -12,7 +13,8 @@ const Home = () => {
             {/* <Partner/> */}
             <Service />
             <Team />
-            <Project/>
+            <Project />
+            <Subscribe/>
         </>
     );
 };

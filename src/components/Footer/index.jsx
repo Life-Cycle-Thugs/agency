@@ -253,6 +253,7 @@ export default function Footer() {
         </Grid>
       </Container>
       <hr />
+      <p style={{textAlign:"center !important"}}>© 2023 Design By Sd Rinku Khan. All Rights Reserved.</p>
     </footer>
   );
 }
