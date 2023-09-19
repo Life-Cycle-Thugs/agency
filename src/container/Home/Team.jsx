@@ -28,42 +28,43 @@ export default function Team() {
           fontWeight: 500,
           textAlign: "center",
           marginTop: 100,
+          marginBottom: 50,
         }}
       >
         Our Pro Team
       </Typography>
       <Grid container spacing={1}>
-        <Grid item xs={4}>
+        <Grid item xs={12} sm={6} md={4}>
           <Item>
             {" "}
             <Image src={Team1} alt="Team1" width={370} height={230} />
           </Item>
         </Grid>
-        <Grid item xs={4}>
+        <Grid item xs={12} sm={6} md={4}>
           <Item>
             {" "}
             <Image src={Team1} alt="Team1" width={370} height={230} />
           </Item>
         </Grid>
-        <Grid item xs={4}>
+        <Grid item xs={12} sm={6} md={4}>
           <Item>
             {" "}
             <Image src={Team1} alt="Team1" width={370} height={230} />
           </Item>
         </Grid>
-        <Grid item xs={4}>
+        <Grid item xs={12} sm={6} md={4}>
           <Item>
             {" "}
             <Image src={Team1} alt="Team1" width={370} height={230} />
           </Item>
         </Grid>
-        <Grid item xs={4}>
+        <Grid item xs={12} sm={6} md={4}>
           <Item>
             {" "}
             <Image src={Team1} alt="Team1" width={370} height={230} />
           </Item>
         </Grid>
-        <Grid item xs={4}>
+        <Grid item xs={12} sm={6} md={4}>
           <Item>
             {" "}
             <Image src={Team1} alt="Team1" width={370} height={230} />

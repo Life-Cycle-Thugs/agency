@@ -3,9 +3,10 @@ import { experimentalStyled as styled } from "@mui/material/styles";
 import Paper from "@mui/material/Paper";
 import Grid from "@mui/material/Unstable_Grid2";
 import { Container, Typography } from "@mui/material";
-import Image from "next/image";
+import Button from "@mui/material/Button";
 
-import Team1 from "../../../public/assets/images/team.png";
+import Image from "next/image";
+import Project1 from "../../../public/assets/images/project.png";
 
 const Item = styled(Paper)(({ theme }) => ({
   backgroundColor: theme.palette.mode === "dark" ? "#1A2027" : "#fff",
@@ -28,45 +29,48 @@ export default function Project() {
           fontWeight: 500,
           textAlign: "center",
           marginTop: 100,
+          marginBottom: 20,
         }}
       >
-        Our Pro Team
+        Our Recent Projects
+        <Button size="small" style={{float:"right",borderRadius:"15px",color:"black",border:"1px solid",padding:"7px 18px"}}>See all</Button>
       </Typography>
+
       <Grid container spacing={1}>
-        <Grid item xs={4}>
+        <Grid item xs={12} sm={6} md={4}>
           <Item>
             {" "}
-            <Image src={Team1} alt="Team1" width={370} height={230} />
+            <Image src={Project1} alt="Project" width={370} height={230} />
           </Item>
         </Grid>
-        <Grid item xs={4}>
+        <Grid item xs={12} sm={6} md={4}>
           <Item>
             {" "}
-            <Image src={Team1} alt="Team1" width={370} height={230} />
+            <Image src={Project1} alt="Project" width={370} height={230} />
           </Item>
         </Grid>
-        <Grid item xs={4}>
+        <Grid item xs={12} sm={6} md={4}>
           <Item>
             {" "}
-            <Image src={Team1} alt="Team1" width={370} height={230} />
+            <Image src={Project1} alt="Project" width={370} height={230} />
           </Item>
         </Grid>
-        <Grid item xs={4}>
+        <Grid item xs={12} sm={6} md={4}>
           <Item>
             {" "}
-            <Image src={Team1} alt="Team1" width={370} height={230} />
+            <Image src={Project1} alt="Project" width={370} height={230} />
           </Item>
         </Grid>
-        <Grid item xs={4}>
+        <Grid item xs={12} sm={6} md={4}>
           <Item>
             {" "}
-            <Image src={Team1} alt="Team1" width={370} height={230} />
+            <Image src={Project1} alt="Project" width={370} height={230} />
           </Item>
         </Grid>
-        <Grid item xs={4}>
+        <Grid item xs={12} sm={6} md={4}>
           <Item>
             {" "}
-            <Image src={Team1} alt="Team1" width={370} height={230} />
+            <Image src={Project1} alt="Project" width={370} height={230} />
           </Item>
         </Grid>
       </Grid>

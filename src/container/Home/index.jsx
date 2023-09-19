@@ -3,6 +3,7 @@ import Talk from './Talk';
 import Partner from './Partner';
 import Service from './Service';
 import Team from './Team';
+import Project from './Project';
 
 const Home = () => {
     return (
@@ -10,7 +11,8 @@ const Home = () => {
             <Talk />
             {/* <Partner/> */}
             <Service />
-            <Team/>
+            <Team />
+            <Project/>
         </>
     );
 };
