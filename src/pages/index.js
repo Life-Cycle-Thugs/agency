@@ -1,16 +1,16 @@
+import { Link } from "next/link"; // Import Link from Next.js
 import Home from "@/container/Home";
+import ServiceArea from "@/container/Service/service";
 import Layout from "@/layouts/landing";
 
-import React from "react";
-
-const index = () => {
+const Index = () => {
   return (
-    <>
-      <Layout>
-        <Home />
-      </Layout>
-    </>
+    <Layout>
+     {/* Link to the Service page */}
+      <Home />
+      {/* <ServiceArea /> */}
+    </Layout>
   );
 };
 
-export default index;
+export default Index;

@@ -11,40 +11,53 @@ import Button from "@mui/material/Button";
 import Tooltip from "@mui/material/Tooltip";
 import MenuItem from "@mui/material/MenuItem";
 import "./style.module.scss";
+import Link from "next/link";
 
-const pages = ["Home", "Service", "About Us", "Contact Us"];
-const settings = ["Profile", "Account", "Dashboard", "Logout"];
+
+// Define custom CSS styles for the links
+const linkStyles = {
+  textDecoration: "none", // Remove underline
+  color: "inherit", // Inherit text color
+};
+
+
+const pages = [
+  { label: "Home", path: "/" },
+  { label: "Service", path: "/service" },
+  { label: "About Us", path: "/about" },
+  { label: "Contact Us", path: "/contact" },
+];
 
 function Header() {
   const [anchorElNav, setAnchorElNav] = React.useState(null);
-  const [anchorElUser, setAnchorElUser] = React.useState(null);
 
   const handleOpenNavMenu = (event) => {
     setAnchorElNav(event.currentTarget);
-  };
-  const handleOpenUserMenu = (event) => {
-    setAnchorElUser(event.currentTarget);
   };
 
   const handleCloseNavMenu = () => {
     setAnchorElNav(null);
   };
 
-  const handleCloseUserMenu = () => {
-    setAnchorElUser(null);
-  };
-
   return (
-    <AppBar position="static" sx={{ backgroundColor: "white", color: "black" , boxShadow: "none", marginBottom:"35px" }}>
+    <AppBar
+      position="static"
+      sx={{
+        backgroundColor: "white",
+        color: "black",
+        boxShadow: "none",
+        marginBottom: "35px",
+      }}
+    >
       <Container maxWidth="xl">
         <Toolbar disableGutters>
           <Typography
             variant="h6"
             noWrap
-            component="a"
-            href="/"
+            component={Link} // Use Link from Next.js
+            href="/" // Use href instead of to
             sx={{
-              fontWeight: 700, // Make it bold
+              fontWeight: 700,
               letterSpacing: ".3rem",
               color: "inherit",
               textDecoration: "none",
@@ -86,18 +99,23 @@ function Header() {
               }}
             >
               {pages.map((page) => (
-                <MenuItem key={page} onClick={handleCloseNavMenu}>
-                  <Typography
-                    textAlign="center"
-                    sx={{
-                      "&:hover": {
-                        color: "tomato", // Change color on hover
-                      },
-                    }}
-                  >
-                    {page}
-                  </Typography>
-                </MenuItem>
+                <Link href={page.path} passHref key={page.label}>
+                  {" "}
+                  {/* Use href and passHref */}
+                  <MenuItem onClick={handleCloseNavMenu}>
+                    <Typography
+                      textAlign="center"
+                      sx={{
+                        "&:hover": {
+                          color: "tomato",
+                        },
+                        ...linkStyles, // Apply custom styles
+                      }}
+                    >
+                      {page.label}
+                    </Typography>
+                  </MenuItem>
+                </Link>
               ))}
             </Menu>
           </Box>
@@ -105,11 +123,10 @@ function Header() {
           <Typography
             variant="h5"
             noWrap
-            component="a"
+            component={Link} // Use Link from React Router
             href="/"
             sx={{
-              fontSize: "24px", // Increase font size
-              fontWeight: 700, // Make it bold
+              fontWeight: 700,
               letterSpacing: ".3rem",
               color: "inherit",
               textDecoration: "none",
@@ -117,6 +134,7 @@ function Header() {
               display: { xs: "flex", md: "none" },
               flexGrow: 1,
             }}
+            style={{ fontSize: "24px" }}
           >
             LOGO
           </Typography>
@@ -126,21 +144,22 @@ function Header() {
           >
             {pages.map((page) => (
               <Button
-                key={page}
-                onClick={handleCloseNavMenu}
+                key={page.label}
+                component={Link} // Use Link from React Router
+                href={page.path}
                 sx={{
                   my: 2,
                   color: "black",
                   display: "block",
-                  fontSize: "20px",
+                  fontSize: "24px",
                   marginLeft: 3,
                   "&:hover": {
-                    color: "tomato", // Change color on hover to tomato
+                    color: "tomato",
                     fontWeight: "600",
                   },
                 }}
               >
-                {page}
+                {page.label}
               </Button>
             ))}
           </Box>
@@ -148,39 +167,18 @@ function Header() {
           <Box sx={{ flexGrow: 0 }}>
             <Tooltip>
               <Button
+                href="/sign-up"
                 style={{
                   color: "white",
                   fontSize: "20px",
-                  backgroundColor: "tomato",
+                  backgroundColor: "#F14E4E",
                   padding: "10px 25px",
-                  borderRadius: "15px",
+                  borderRadius: "20px",
                 }}
               >
                 Sign in
               </Button>
             </Tooltip>
-            {/* <Menu
-              sx={{ mt: "45px" }}
-              id="menu-appbar"
-              anchorEl={anchorElUser}
-              anchorOrigin={{
-                vertical: "top",
-                horizontal: "right",
-              }}
-              keepMounted
-              transformOrigin={{
-                vertical: "top",
-                horizontal: "right",
-              }}
-              open={Boolean(anchorElUser)}
-              onClose={handleCloseUserMenu}
-            >
-              {settings.map((setting) => (
-                <MenuItem key={setting} onClick={handleCloseUserMenu}>
-                  <Typography textAlign="center">{setting}</Typography>
-                </MenuItem>
-              ))}
-            </Menu> */}
           </Box>
         </Toolbar>
       </Container>

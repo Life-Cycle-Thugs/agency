@@ -72,3 +72,7 @@
     --card-border-rgb: 200, 200, 200;
   }
 }
+
+*body{
+  background-color: black;
+}

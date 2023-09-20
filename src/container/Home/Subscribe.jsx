@@ -71,7 +71,11 @@ export default function Subscribe() {
             <Grid item xs={12} md={6}>
               <InputContainer>
                 <TextField
-                  style={{background: "white",borderRadius: "20px",marginLeft: "100px"}}
+                  style={{
+                    background: "white",
+                    borderRadius: "20px",
+                    marginLeft: "100px",
+                  }}
                   label="Email"
                   // variant="outlined"
                   fullWidth
@@ -82,11 +86,20 @@ export default function Subscribe() {
                   variant="contained"
                   // color="primary"
                   onClick={handleSubscribe}
-                  style={{background:" #F14E4E",borderRadius:"20px",padding:"15px 30px",marginRight:"1px"}}
+                  style={{
+                    background: " #F14E4E",
+                    borderRadius: "20px",
+                    padding: "15px 30px",
+                    marginRight: "1px",
+                  }}
                 >
                   Subscribe
                 </Button>
               </InputContainer>
+              <Typography style={{color:"white",marginLeft:"100px",marginTop:"20px",fontSize:"16px"}}>
+                Our clients get the best results when they have our team
+                dedicated to their business for extended periods of time.
+              </Typography>
             </Grid>
           </Grid>
         </Box>
