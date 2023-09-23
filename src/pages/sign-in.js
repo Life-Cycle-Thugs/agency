@@ -1,13 +1,10 @@
-import { Link } from "next/link"; // Import Link from Next.js
-import Home from "@/container/Home";
+import SignIn from "@/container/auth/signin";
 import Layout from "@/layouts/landing";
 
 const Index = () => {
   return (
     <Layout>
-    
-      <Home />
-      
+      <SignIn />
     </Layout>
   );
 };

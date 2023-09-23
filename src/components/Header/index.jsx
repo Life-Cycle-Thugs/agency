@@ -10,16 +10,15 @@ import Container from "@mui/material/Container";
 import Button from "@mui/material/Button";
 import Tooltip from "@mui/material/Tooltip";
 import MenuItem from "@mui/material/MenuItem";
-import "./style.module.scss";
-import Link from "next/link";
-
+import Link from "next/link"; // Import Link from "next/link"
+import { useTheme } from "@mui/material/styles";
+import useMediaQuery from "@mui/material/useMediaQuery";
 
 // Define custom CSS styles for the links
 const linkStyles = {
   textDecoration: "none", // Remove underline
   color: "inherit", // Inherit text color
 };
-
 
 const pages = [
   { label: "Home", path: "/" },
@@ -29,6 +28,9 @@ const pages = [
 ];
 
 function Header() {
+  const theme = useTheme();
+  const isMobile = useMediaQuery(theme.breakpoints.down("md"));
+
   const [anchorElNav, setAnchorElNav] = React.useState(null);
 
   const handleOpenNavMenu = (event) => {
@@ -62,14 +64,14 @@ function Header() {
               color: "inherit",
               textDecoration: "none",
               mr: 2,
-              display: { xs: "none", md: "flex" },
+              display: isMobile ? "none" : "flex",
             }}
             className="logo"
           >
             LOGO
           </Typography>
 
-          <Box sx={{ flexGrow: 1, display: { xs: "flex", md: "none" } }}>
+          <Box sx={{ flexGrow: 1, display: isMobile ? "flex" : "none" }}>
             <IconButton
               size="large"
               aria-label="account of current user"
@@ -80,6 +82,7 @@ function Header() {
             >
               <MenuIcon />
             </IconButton>
+
             <Menu
               id="menu-appbar"
               anchorEl={anchorElNav}
@@ -95,7 +98,7 @@ function Header() {
               open={Boolean(anchorElNav)}
               onClose={handleCloseNavMenu}
               sx={{
-                display: { xs: "block", md: "none" },
+                display: isMobile ? "block" : "none",
               }}
             >
               {pages.map((page) => (
@@ -112,7 +115,7 @@ function Header() {
                         ...linkStyles, // Apply custom styles
                       }}
                     >
-                      {page.label}
+                      {page.label} 
                     </Typography>
                   </MenuItem>
                 </Link>
@@ -131,7 +134,7 @@ function Header() {
               color: "inherit",
               textDecoration: "none",
               mr: 5,
-              display: { xs: "flex", md: "none" },
+              display: isMobile ? "flex" : "none",
               flexGrow: 1,
             }}
             style={{ fontSize: "24px" }}
@@ -139,8 +142,14 @@ function Header() {
             LOGO
           </Typography>
           <Box
-            sx={{ flexGrow: 1, display: { xs: "none", md: "flex" } }}
-            style={{ marginLeft: "25px" }}
+            sx={{
+              flexGrow: 1,
+              display: isMobile ? "none" : "flex",
+              marginLeft: "25px",
+              display: "flex !important",
+              alignItems: "center !important",
+              justifyContent: "center !important",
+            }}
           >
             {pages.map((page) => (
               <Button
@@ -167,6 +176,7 @@ function Header() {
           <Box sx={{ flexGrow: 0 }}>
             <Tooltip>
               <Button
+                component={Link}
                 href="/sign-up"
                 style={{
                   color: "white",
