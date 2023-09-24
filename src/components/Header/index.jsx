@@ -177,7 +177,7 @@ function Header() {
             <Tooltip>
               <Button
                 component={Link}
-                href="/sign-up"
+                href="/sign-in"
                 style={{
                   color: "white",
                   fontSize: "20px",

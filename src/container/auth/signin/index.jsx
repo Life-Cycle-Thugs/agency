@@ -11,10 +11,6 @@ import IconButton from "@mui/material/IconButton";
 import Visibility from "@mui/icons-material/Visibility";
 import VisibilityOff from "@mui/icons-material/VisibilityOff";
 import Button from "@mui/material/Button";
-// import SvgIcon from "@material-ui/core/SvgIcon";
-
-//  import PasswordField from "material-ui-password-field";
-
 import {
   Container,
   FormControlLabel,
@@ -22,10 +18,9 @@ import {
   Switch,
   Typography,
 } from "@mui/material";
-import Image from "next/image";
-import { CustomButton } from "../sytles";
 
-// import signup from "../../public";
+import Link from "next/link";
+
 
 const Item = styled(Paper)(({ theme }) => ({
   padding: "80px 100px",
@@ -150,6 +145,16 @@ export default function SignIn() {
                       label="Remember me"
                       labelPlacement="Remember me"
                     />
+                    <Link
+                      style={{
+                        color: "#F14E4E",
+                        textAlign: "left",
+                        alignItems: "left",
+                      }}
+                      href="#"
+                    >
+                      Forgot password
+                    </Link>
                     <br />
                     <Button
                       type="submit"
@@ -164,24 +169,33 @@ export default function SignIn() {
                       Sign IN
                     </Button>
                   </form>
-                  <hr />
+                  <hr style={{ color: "#ECEFF4" }} />
                   <Button
                     type="submit"
                     variant="contained"
                     style={{
                       background: "#F2F4F6",
-                       padding: "12px 90px",
+                      padding: "12px 80px",
                       marginTop: 15,
                       marginBottom: 15,
                       color: " #808080",
+                      fontSize:"13px"
                     }}
                   >
+                    <img
+                      style={{height:"23px", width:"23px"}}
+                      component={"img"}
+                      src={"/assets/images/google.png"}
+                      alt="signup"
+                    ></img>
                     Or Sign in with Google
                   </Button>
-                  {/* <p style={{ textAlign: "center" }}>
-                    Already have an account?{" "}
-                    <span style={{ color: "#F14E4E" }}>Sign In</span>{" "}
-                  </p> */}
+                  <p style={{ textAlign: "center" }}>
+                    Don't have an account ?
+                    <Link style={{ color: "#F14E4E" }} href="/sign-up">
+                      Sign Up
+                    </Link>
+                  </p>
 
                   {/* <CustomButton>Hello</CustomButton> */}
                 </Box>
