@@ -10,7 +10,7 @@ const Item = styled(Paper)(({ theme }) => ({
 
   ...theme.typography.body2,
   padding: theme.spacing(2),
-  textAlign: "left",
+  // textAlign: "left",
   color: "white",
   boxShadow: "none",
 }));

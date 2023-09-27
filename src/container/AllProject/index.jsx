@@ -20,7 +20,7 @@ const useStyles = makeStyles((theme) => ({
     display: "flex",
     alignItems: "center",
     justifyContent: "center",
-    boxShadow: "0px 2px 6px rgba(0, 0, 0, 0.3)",
+    boxShadow: "0px 2px 6px rgba(0, 0, 0, 0.3) !important",
     marginBottom: 100,
     cursor: "pointer", // Add cursor pointer for better UX
   },
@@ -71,6 +71,7 @@ export default function AllProject() {
             textAlign: "center",
             marginTop: 100,
             marginBottom: 60,
+            textTransform: "uppercase",
           }}
         >
           All Projects
@@ -88,7 +89,7 @@ export default function AllProject() {
         <Grid container spacing={1}>
           <Grid item xs={12} sm={6} md={4}>
             <Item>
-              <Link href="#">
+              <Link href="/project-details">
                 <Image src={Project1} alt="Project" width={425} height={255} />
               </Link>
             </Item>

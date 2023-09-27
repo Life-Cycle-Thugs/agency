@@ -7,6 +7,7 @@ import Button from "@mui/material/Button";
 
 import Image from "next/image";
 import Project1 from "../../../public/assets/images/project.png";
+import Link from "next/link";
 
 const Item = styled(Paper)(({ theme }) => ({
   backgroundColor: theme.palette.mode === "dark" ? "#1A2027" : "#fff",
@@ -33,7 +34,7 @@ export default function Project() {
         }}
       >
         Our Recent Projects
-        <Button size="small" style={{float:"right",borderRadius:"15px",color:"black",border:"1px solid",padding:"7px 18px"}}>See all</Button>
+        <Link href='/all-project' size="small" style={{float:"right",borderRadius:"15px",color:"black",border:"1px solid",padding:"0px 18px",textDecoration:"none",fontSize:20}}>See all</Link>
       </Typography>
 
       <Grid container spacing={1}>
