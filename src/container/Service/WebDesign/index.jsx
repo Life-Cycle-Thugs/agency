@@ -2,10 +2,10 @@ import * as React from "react";
 import { experimentalStyled as styled } from "@mui/material/styles";
 import Paper from "@mui/material/Paper";
 import Grid from "@mui/material/Unstable_Grid2";
-import { Box, Container, Typography } from "@mui/material";
+import { Box, Container, List, ListItem, ListItemText, Typography } from "@mui/material";
 import Button from "@mui/material/Button";
 import Image from "next/image";
-
+// import { List, ListItem, ListItemText } from "@material-ui/core";
 import IconButton from "@mui/material/IconButton";
 import ArrowDownwardIcon from "@mui/icons-material/ArrowDownward";
 import { makeStyles } from "@mui/styles";
@@ -15,6 +15,10 @@ import CreativeDesign from "../../../../public/assets/images/webdesign/creative.
 import Innovative from "../../../../public/assets/images/webdesign/innovation.png";
 import Elevated from "../../../../public/assets/images/webdesign/elevrate.png";
 import Custom from "../../../../public/assets/images/webdesign/custom.png";
+import ProjectTalk from "@/container/AllProject/ProjectTalk";
+import WorkingProcess from "@/container/Home/WorkingProcess";
+import WebDesignTechnology from "./WebDesignTechnology";
+import PricePlan from "@/container/prices";
 
 const useStyles = makeStyles((theme) => ({
   circleButton: {
@@ -210,33 +214,46 @@ export default function WebDesignServices() {
                 marginLeft: 15,
               }}
             >
-              <ul>
-                <li>
-                  {" "}
-                  As a business, an online presence is essential – especially
-                  with more than half of the world's population active on the
-                  internet.
-                </li>
-                <li>
-                  {" "}
-                  Nowadays people shop online, search for services online, talk
-                  to family and friends online, and expect every business they
-                  encounter to have a fast, functional website.
-                </li>
-                <li>
-                  {" "}
-                  A sleek, responsive website sends the right message to
-                  customers. It shows that you know that you are doing and are a
-                  business they can trust to get the job done.
-                </li>
-                <li>
-                  {" "}
-                  Great website design and user experience facilitate brand
-                  reputation and loyalty. People want to visit websites that
-                  help them achieve their goals and leave them feeling
-                  satisfied.
-                </li>
-              </ul>
+              <List>
+                <ListItem>
+                  <ListItemText>
+                    <Typography>
+                      As a business, an online presence is essential –
+                      especially with more than half of the world's population
+                      active on the internet.
+                    </Typography>
+                  </ListItemText>
+                </ListItem>
+                <ListItem>
+                  <ListItemText>
+                    <Typography>
+                      Nowadays people shop online, search for services online,
+                      talk to family and friends online, and expect every
+                      business they encounter to have a fast, functional
+                      website.
+                    </Typography>
+                  </ListItemText>
+                </ListItem>
+                <ListItem>
+                  <ListItemText>
+                    <Typography>
+                      A sleek, responsive website sends the right message to
+                      customers. It shows that you know what you are doing and
+                      are a business they can trust to get the job done.
+                    </Typography>
+                  </ListItemText>
+                </ListItem>
+                <ListItem>
+                  <ListItemText>
+                    <Typography>
+                      Great website design and user experience facilitate brand
+                      reputation and loyalty. People want to visit websites that
+                      help them achieve their goals and leave them feeling
+                      satisfied.
+                    </Typography>
+                  </ListItemText>
+                </ListItem>
+              </List>
             </Typography>
           </Grid>
           <Grid item xs={12} sm={6}>
@@ -349,7 +366,7 @@ export default function WebDesignServices() {
                 color: "#091627",
                 marginTop: 20,
                 marginBottom: 3,
-                 marginRight: 10,
+                marginRight: 10,
               }}
             >
               Custom Design, Content, And Graphics
@@ -367,15 +384,15 @@ export default function WebDesignServices() {
               When it comes to your website, standing out from the crowd is
               essential. Every website visitor makes a split-second decision as
               to whether they are visiting the correct site to solve their
-              problems or to get the answers that they are seeking.   <br /> <br /> Eftekhar
-              Joy, offers custom website design services, unique, SEO content
-              writing, and advanced graphic design to ensure that your website
-              stands out from the competition and reflects all the best aspects
-              of your brand.  <br /> <br />  Whether you want a sleek, professional website to
-              entice business customers and showcase your service capabilities
-              or a fresh, graphic-heavy e-commerce website with product listings
-              and descriptions, our team can create a custom website that meets
-              all of your needs.
+              problems or to get the answers that they are seeking. <br />{" "}
+              <br /> Eftekhar Joy, offers custom website design services,
+              unique, SEO content writing, and advanced graphic design to ensure
+              that your website stands out from the competition and reflects all
+              the best aspects of your brand. <br /> <br /> Whether you want a
+              sleek, professional website to entice business customers and
+              showcase your service capabilities or a fresh, graphic-heavy
+              e-commerce website with product listings and descriptions, our
+              team can create a custom website that meets all of your needs.
             </Typography>
           </Grid>
           <Grid item xs={12} sm={6} sx={{ marginTop: 20 }}>
@@ -388,7 +405,10 @@ export default function WebDesignServices() {
             />
           </Grid>
         </Grid>
-        {/* <ProjectTalk /> */}
+        <WorkingProcess />
+        <WebDesignTechnology />
+        <PricePlan/>
+        <ProjectTalk />
       </Container>
     </>
   );
