@@ -19,6 +19,7 @@ import ProjectTalk from "@/container/AllProject/ProjectTalk";
 import WorkingProcess from "@/container/Home/WorkingProcess";
 import WebDesignTechnology from "./WebDesignTechnology";
 import PricePlan from "@/container/prices";
+import Payment from "@/Payment";
 
 const useStyles = makeStyles((theme) => ({
   circleButton: {
@@ -407,7 +408,8 @@ export default function WebDesignServices() {
         </Grid>
         <WorkingProcess />
         <WebDesignTechnology />
-        <PricePlan/>
+        <PricePlan />
+        <Payment/>
         <ProjectTalk />
       </Container>
     </>
