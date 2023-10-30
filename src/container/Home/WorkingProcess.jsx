@@ -1,12 +1,7 @@
 import * as React from "react";
-import { experimentalStyled as styled } from "@mui/material/styles";
-import Paper from "@mui/material/Paper";
-import Grid from "@mui/material/Unstable_Grid2";
 import { Box, Container, Typography } from "@mui/material";
 import Image from "next/image";
-
 import work from "../../../public/assets/images/wok.png";
-
 
 export default function WorkingProcess() {
   return (

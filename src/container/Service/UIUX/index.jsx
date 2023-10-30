@@ -15,12 +15,13 @@ import Image from "next/image";
 import IconButton from "@mui/material/IconButton";
 import ArrowDownwardIcon from "@mui/icons-material/ArrowDownward";
 import { makeStyles } from "@mui/styles";
-import WebDevelopment from "../../../../public/assets/images/webdevlopment/webdevelopment.png";
+import UiUX from "../../../../public/assets/images/uiux/ui-ux.png";
+
 import ProjectTalk from "@/container/AllProject/ProjectTalk";
-import WorkingProcess from "@/container/Home/WorkingProcess";
 import PricePlan from "@/container/prices";
 import Payment from "@/Payment";
-import WebDesignTechnology from "../WebDesign/WebDesignTechnology";
+import UiUXProcess from "./ui-ux-process";
+import UIUXTechnology from "./UIUXTechnology";
 
 const useStyles = makeStyles((theme) => ({
   circleButton: {
@@ -67,7 +68,7 @@ const AllProjectItem = styled(Paper)(({ theme }) => ({
   boxShadow: "none",
 }));
 
-export default function WebDevelopmentServices() {
+export default function UiUx() {
   const classes = useStyles();
 
   return (
@@ -87,7 +88,7 @@ export default function WebDevelopmentServices() {
               color: "#000",
             }}
           >
-            web development services
+            Ux/Ui Design Services
           </Typography>
           <Typography
             variant="h2"
@@ -145,7 +146,7 @@ export default function WebDevelopmentServices() {
                 marginRight: 2,
               }}
             >
-              Web Development
+              Ux/Ui Design
             </Typography>
             <Typography
               variant="body2"
@@ -181,8 +182,8 @@ export default function WebDevelopmentServices() {
           </Grid>
           <Grid item xs={12} sm={6}>
             <Image
-              src={WebDevelopment}
-              alt="WebDevelopment"
+              src={UiUX}
+              alt="UiUX"
               width={570}
               height={420}
               style={{ borderRadius: 20 }}
@@ -190,8 +191,8 @@ export default function WebDevelopmentServices() {
           </Grid>
         </Grid>
 
-        <WorkingProcess />
-        <WebDesignTechnology />
+        <UiUXProcess />
+        <UIUXTechnology />
         <PricePlan />
         <Payment />
         <ProjectTalk />
