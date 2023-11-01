@@ -11,9 +11,7 @@ import IconButton from "@mui/material/IconButton";
 import Visibility from "@mui/icons-material/Visibility";
 import VisibilityOff from "@mui/icons-material/VisibilityOff";
 import Button from "@mui/material/Button";
-// import SvgIcon from "@material-ui/core/SvgIcon";
 
-//  import PasswordField from "material-ui-password-field";
 
 import {
   Container,
