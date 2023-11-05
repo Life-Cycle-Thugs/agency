@@ -63,7 +63,7 @@ const AllProjectItem = styled(Paper)(({ theme }) => ({
   boxShadow: "none",
 }));
 
-export default function WebDesignForm() {
+export default function UIUXDesignForm() {
   const classes = useStyles();
 
   const [formData, setFormData] = useState({
@@ -162,7 +162,7 @@ export default function WebDesignForm() {
               color: "#000",
             }}
           >
-            web design requirement form
+            UI UX design requirement form
           </Typography>
 
           <Grid container spacing={2} justify="flex-start">
