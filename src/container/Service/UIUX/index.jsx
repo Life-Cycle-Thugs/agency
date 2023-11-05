@@ -22,6 +22,7 @@ import PricePlan from "@/container/prices";
 import Payment from "@/Payment";
 import UiUXProcess from "./ui-ux-process";
 import UIUXTechnology from "./UIUXTechnology";
+import Customer from "@/container/Home/Customer";
 
 const useStyles = makeStyles((theme) => ({
   circleButton: {
@@ -195,6 +196,7 @@ export default function UiUx() {
         <UIUXTechnology />
         <PricePlan />
         <Payment />
+        <Customer />
         <ProjectTalk />
       </Container>
     </>

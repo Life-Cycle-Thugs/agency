@@ -6,18 +6,21 @@ import Team from './Team';
 import Project from './Project';
 import Subscribe from './Subscribe';
 import WorkingProcess from './WorkingProcess';
+import Customer from './Customer';
 
 const Home = () => {
     return (
-        <>
-            <Talk />
-            {/* <Partner/> */}
-            <Service />
-            <WorkingProcess/>
-            <Team />
-            <Project />
-            <Subscribe/>
-        </>
+      <>
+        <Talk />
+        {/* <Partner/> */}
+        <Service />
+        <WorkingProcess />
+        <Team />
+        <Customer />
+        <Project />
+
+        <Subscribe />
+      </>
     );
 };
 
