@@ -13,7 +13,9 @@ import CloudUploadIcon from "@mui/icons-material/CloudUpload";
 import PaymentIcon from "@mui/icons-material/Payment";
 import SettingsIcon from "@mui/icons-material/Settings";
 import ExitToAppIcon from "@mui/icons-material/ExitToApp";
+import BorderStyleIcon from "@mui/icons-material/BorderStyle";
 import { styled } from "@mui/material/styles";
+import Link from "next/link";
 
 const StyledListItemIcon = styled(ListItemIcon)(({ theme }) => ({
   "&:hover": {
@@ -44,12 +46,28 @@ const DashbordNavbar = () => {
       >
         {/* Left Navigation Content */}
         <List>
-          <ListItem button sx={{ height: 50, marginTop: 2 }}>
-            <StyledListItemIcon>
-              <DashboardIcon />
-            </StyledListItemIcon>
-            <ListItemText primary="Dashboard" />
-          </ListItem>
+          <Link
+            href="/dashbord/dashbord"
+            style={{ textDecoration: "none", color: "black" }}
+          >
+            <ListItem button sx={{ height: 50, marginTop: 2 }}>
+              <StyledListItemIcon>
+                <DashboardIcon />
+              </StyledListItemIcon>
+              <ListItemText primary="Dashboard" />
+            </ListItem>
+          </Link>
+          <Link
+            href="/dashbord/orders"
+            style={{ textDecoration: "none", color: "black" }}
+          >
+            <ListItem button sx={{ height: 50, marginTop: 2 }}>
+              <StyledListItemIcon>
+                <BorderStyleIcon />
+              </StyledListItemIcon>
+              <ListItemText primary="Order" />
+            </ListItem>
+          </Link>
           <ListItem button sx={{ height: 50, marginTop: 2 }}>
             <StyledListItemIcon>
               <MessageIcon />
@@ -86,6 +104,7 @@ const DashbordNavbar = () => {
             </StyledListItemIcon>
             <ListItemText primary="Logout" />
           </ListItem>
+          {/* Add the "Order" section below */}
         </List>
       </Drawer>
     </div>

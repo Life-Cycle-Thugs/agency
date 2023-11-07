@@ -27,7 +27,10 @@ export default function OurService() {
       </Typography>
       <Grid container spacing={2}>
         <Grid item xs={12} sm={6} md={4}>
-          <Link href="/ui-ux-service" style={{ textDecoration: "none" }}>
+          <Link
+            href="/services/ui-ux-service"
+            style={{ textDecoration: "none" }}
+          >
             <Card sx={{ maxWidth: 345 }}>
               <Image src={UIUx} alt="UIUx" width={300} height={194} />
               <CardContent>
@@ -53,7 +56,10 @@ export default function OurService() {
           </Link>
         </Grid>
         <Grid item xs={12} sm={6} md={4}>
-          <Link href="/web-design-service" style={{ textDecoration: "none" }}>
+          <Link
+            href="/services/web-design-service"
+            style={{ textDecoration: "none" }}
+          >
             <Card sx={{ maxWidth: 345 }}>
               <Image src={WebDesign} alt="WebDesign" width={300} height={194} />
               <CardContent>
@@ -80,7 +86,7 @@ export default function OurService() {
         </Grid>
         <Grid item xs={12} sm={6} md={4}>
           <Link
-            href="/web-development-service"
+            href="/services/web-development-service"
             style={{ textDecoration: "none" }}
           >
             <Card sx={{ maxWidth: 345 }}>
