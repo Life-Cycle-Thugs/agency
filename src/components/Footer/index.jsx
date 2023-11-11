@@ -3,6 +3,7 @@ import { experimentalStyled as styled } from "@mui/material/styles";
 import Paper from "@mui/material/Paper";
 import Grid from "@mui/material/Unstable_Grid2";
 import { Container, Typography } from "@mui/material";
+import Link from "next/link";
 
 const Item = styled(Paper)(({ theme }) => ({
   backgroundColor: "#091627",
@@ -85,50 +86,70 @@ export default function Footer() {
                 >
                   Navigation
                 </Typography>
-                <Typography
-                  variant="body2"
-                  style={{
-                    fontSize: "20px",
-                    lineHeight: "30px",
-                    fontWeight: "400",
-                    marginBottom: "15px",
-                  }}
+                <Link
+                  href="/"
+                  style={{ textDecoration: "none", color: "#fff" }}
                 >
-                  Home
-                </Typography>
-                <Typography
-                  variant="body2"
-                  style={{
-                    fontSize: "20px",
-                    lineHeight: "30px",
-                    fontWeight: "400",
-                    marginBottom: "15px",
-                  }}
+                  <Typography
+                    variant="body2"
+                    style={{
+                      fontSize: "20px",
+                      lineHeight: "30px",
+                      fontWeight: "400",
+                      marginBottom: "15px",
+                    }}
+                  >
+                    Home
+                  </Typography>
+                </Link>
+                <Link
+                  href="/service"
+                  style={{ textDecoration: "none", color: "#fff" }}
                 >
-                  Service
-                </Typography>
-                <Typography
-                  variant="body2"
-                  style={{
-                    fontSize: "20px",
-                    lineHeight: "30px",
-                    fontWeight: "400",
-                    marginBottom: "15px",
-                  }}
+                  <Typography
+                    variant="body2"
+                    style={{
+                      fontSize: "20px",
+                      lineHeight: "30px",
+                      fontWeight: "400",
+                      marginBottom: "15px",
+                    }}
+                  >
+                    Service
+                  </Typography>
+                </Link>
+                <Link
+                  href="/about"
+                  style={{ textDecoration: "none", color: "#fff" }}
                 >
-                  About Us
-                </Typography>
-                <Typography
-                  variant="body2"
-                  style={{
-                    fontSize: "20px",
-                    lineHeight: "30px",
-                    fontWeight: "400",
-                    marginBottom: "15px",
-                  }}
+                  <Typography
+                    variant="body2"
+                    style={{
+                      fontSize: "20px",
+                      lineHeight: "30px",
+                      fontWeight: "400",
+                      marginBottom: "15px",
+                    }}
+                  >
+                    About Us
+                  </Typography>
+                </Link>
+                <Link
+                  href="/contact"
+                  style={{ textDecoration: "none", color: "#fff" }}
                 >
-                  Contact Us
-                </Typography>
+                  <Typography
+                    variant="body2"
+                    style={{
+                      fontSize: "20px",
+                      lineHeight: "30px",
+                      fontWeight: "400",
+                      marginBottom: "15px",
+                    }}
+                  >
+                    Contact Us
+                  </Typography>
+                </Link>
               </Item>
             </Grid>
             <Grid item xs={12} sm={6} md={4} lg={3}>
@@ -145,39 +166,54 @@ export default function Footer() {
                 >
                   Quick Links
                 </Typography>
-                <Typography
-                  variant="body2"
-                  style={{
-                    fontSize: "20px",
-                    lineHeight: "30px",
-                    fontWeight: "400",
-                    marginBottom: "15px",
-                  }}
+                <Link
+                  href="/services/web-design-service"
+                  style={{ textDecoration: "none", color: "#fff" }}
                 >
-                  Web Design
-                </Typography>
-                <Typography
-                  variant="body2"
-                  style={{
-                    fontSize: "20px",
-                    lineHeight: "30px",
-                    fontWeight: "400",
-                    marginBottom: "15px",
-                  }}
+                  <Typography
+                    variant="body2"
+                    style={{
+                      fontSize: "20px",
+                      lineHeight: "30px",
+                      fontWeight: "400",
+                      marginBottom: "15px",
+                    }}
+                  >
+                    Web Design
+                  </Typography>
+                </Link>
+                <Link
+                  href="/services/web-development-service"
+                  style={{ textDecoration: "none", color: "#fff" }}
                 >
-                  Web Development
-                </Typography>
-                <Typography
-                  variant="body2"
-                  style={{
-                    fontSize: "20px",
-                    lineHeight: "30px",
-                    fontWeight: "400",
-                    marginBottom: "15px",
-                  }}
+                  <Typography
+                    variant="body2"
+                    style={{
+                      fontSize: "20px",
+                      lineHeight: "30px",
+                      fontWeight: "400",
+                      marginBottom: "15px",
+                    }}
+                  >
+                    Web Development
+                  </Typography>
+                </Link>
+                <Link
+                  href="/services/ui-ux-service"
+                  style={{ textDecoration: "none", color: "#fff" }}
                 >
-                  Ux/Ui Design
-                </Typography>
+                  <Typography
+                    variant="body2"
+                    style={{
+                      fontSize: "20px",
+                      lineHeight: "30px",
+                      fontWeight: "400",
+                      marginBottom: "15px",
+                    }}
+                  >
+                    Ux/Ui Design
+                  </Typography>
+                </Link>
                 <Typography
                   variant="body2"
                   style={{
@@ -206,17 +242,22 @@ export default function Footer() {
                 >
                   Customer service
                 </Typography>
-                <Typography
-                  variant="body2"
-                  style={{
-                    fontSize: "20px",
-                    lineHeight: "30px",
-                    fontWeight: "400",
-                    marginBottom: "15px",
-                  }}
+                <Link
+                  href="/privacy-policy"
+                  style={{ textDecoration: "none", color: "#fff" }}
                 >
-                  Privacy Policy
-                </Typography>
+                  <Typography
+                    variant="body2"
+                    style={{
+                      fontSize: "20px",
+                      lineHeight: "30px",
+                      fontWeight: "400",
+                      marginBottom: "15px",
+                    }}
+                  >
+                    Privacy Policy
+                  </Typography>
+                </Link>
                 <Typography
                   variant="body2"
                   style={{
@@ -228,28 +269,38 @@ export default function Footer() {
                 >
                   Terms & Conditions
                 </Typography>
-                <Typography
-                  variant="body2"
-                  style={{
-                    fontSize: "20px",
-                    lineHeight: "30px",
-                    fontWeight: "400",
-                    marginBottom: "15px",
-                  }}
+                <Link
+                  href="/faq"
+                  style={{ textDecoration: "none", color: "#fff" }}
                 >
-                  FAQ
-                </Typography>
-                <Typography
-                  variant="body2"
-                  style={{
-                    fontSize: "20px",
-                    lineHeight: "30px",
-                    fontWeight: "400",
-                    marginBottom: "15px",
-                  }}
+                  <Typography
+                    variant="body2"
+                    style={{
+                      fontSize: "20px",
+                      lineHeight: "30px",
+                      fontWeight: "400",
+                      marginBottom: "15px",
+                    }}
+                  >
+                    FAQ
+                  </Typography>
+                </Link>
+                <Link
+                  href="/sign-up"
+                  style={{ textDecoration: "none", color: "#fff" }}
                 >
-                  Register
-                </Typography>
+                  <Typography
+                    variant="body2"
+                    style={{
+                      fontSize: "20px",
+                      lineHeight: "30px",
+                      fontWeight: "400",
+                      marginBottom: "15px",
+                    }}
+                  >
+                    Register
+                  </Typography>
+                </Link>
               </Item>
             </Grid>
           </Grid>

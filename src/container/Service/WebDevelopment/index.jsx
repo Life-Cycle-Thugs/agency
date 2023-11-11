@@ -21,6 +21,7 @@ import WorkingProcess from "@/container/Home/WorkingProcess";
 import PricePlan from "@/container/prices";
 import Payment from "@/Payment";
 import WebDesignTechnology from "../WebDesign/WebDesignTechnology";
+import Link from "next/link";
 
 const useStyles = makeStyles((theme) => ({
   circleButton: {
@@ -117,7 +118,12 @@ export default function WebDevelopmentServices() {
                   marginBottom: 80,
                 }}
               >
-                Request a Proposal
+                <Link
+                  href="/services/web-development-form"
+                  style={{ textDecoration: "none", color: "#fff" }}
+                >
+                  Request a Proposal
+                </Link>
               </Button>
             </Grid>
           </Grid>

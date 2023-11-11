@@ -6,6 +6,7 @@ import Grid from "@mui/material/Grid";
 import { Button, Container, Typography } from "@mui/material";
 import Image from "next/image";
 import TalkImg from "../../../public/assets/images/talk.png";
+import Link from "next/link";
 
 const Item = styled(Paper)(({ theme }) => ({
   // backgroundColor: theme.palette.mode === "dark" ? "#1A2027" : "#fff",
@@ -63,7 +64,7 @@ export default function Talk() {
                   fontSize: "18px",
                 }}
               >
-                LET'S TALK
+                <Link style={{textDecoration:'none',color:"#fff"}} href="/contact"> LET'S TALK</Link>
               </Button>
             </Item>
           </Grid>

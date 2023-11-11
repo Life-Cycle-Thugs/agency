@@ -23,6 +23,7 @@ import Payment from "@/Payment";
 import UiUXProcess from "./ui-ux-process";
 import UIUXTechnology from "./UIUXTechnology";
 import Customer from "@/container/Home/Customer";
+import Link from "next/link";
 
 const useStyles = makeStyles((theme) => ({
   circleButton: {
@@ -108,6 +109,10 @@ export default function UiUx() {
           </Typography>
           <Grid container spacing={2} justify="flex-start">
             <Grid item>
+              {/* <Link
+                  href="/sign-up"
+                  style={{ textDecoration: "none", color: "#fff" }}
+                ></Link> */}
               <Button
                 variant="contained"
                 style={{
@@ -119,7 +124,10 @@ export default function UiUx() {
                   marginBottom: 80,
                 }}
               >
-                Request a Proposal
+                <Link href="/services/ui-ux-design-from" style={{textDecoration:'none',color:"#fff"}}>
+                  {" "}
+                  Request a Proposal
+                </Link>
               </Button>
             </Grid>
           </Grid>
