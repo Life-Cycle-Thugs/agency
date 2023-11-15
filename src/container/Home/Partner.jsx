@@ -1,74 +1,46 @@
 import React from "react";
-import Slider from "react-slick";
-import Paper from "@mui/material/Paper";
-import Typography from "@mui/material/Typography";
-import Container from "@mui/material/Container";
-
-const settings = {
-  dots: true,
-  infinite: true,
-  speed: 500,
-  slidesToShow: 1,
-  slidesToScroll: 1,
-};
+import Partner1 from "../../../public/assets/images/partner-1.png";
+import Partner2 from "../../../public/assets/images/partner-2.png";
+import Partner3 from "../../../public/assets/images/partner-3.png";
+import Partner4 from "../../../public/assets/images/partner-4.png";
+import Partner5 from "../../../public/assets/images/partner-5.png";
+import { Container, Grid, Typography } from "@mui/material";
+import Image from "next/image";
+const partners = [Partner1, Partner2, Partner3, Partner4, Partner5];
 
 const Partner = () => {
   return (
-    <Container>
-      <Paper elevation={3} style={{ padding: "16px", marginTop: "16px" }}>
-        <Typography variant="h4">Single Item</Typography>
-        <Slider {...settings}>
-          <div>
-            <Paper
-              elevation={3}
-              style={{ padding: "20px", textAlign: "center" }}
-            >
-              <Typography variant="h3">1</Typography>
-            </Paper>
-          </div>
-          <div>
-            <Paper
-              elevation={3}
-              style={{ padding: "20px", textAlign: "center" }}
-            >
-              <Typography variant="h3">2</Typography>
-            </Paper>
-          </div>
-          <div>
-            <Paper
-              elevation={3}
-              style={{ padding: "20px", textAlign: "center" }}
-            >
-              <Typography variant="h3">3</Typography>
-            </Paper>
-          </div>
-          <div>
-            <Paper
-              elevation={3}
-              style={{ padding: "20px", textAlign: "center" }}
-            >
-              <Typography variant="h3">4</Typography>
-            </Paper>
-          </div>
-          <div>
-            <Paper
-              elevation={3}
-              style={{ padding: "20px", textAlign: "center" }}
-            >
-              <Typography variant="h3">5</Typography>
-            </Paper>
-          </div>
-          <div>
-            <Paper
-              elevation={3}
-              style={{ padding: "20px", textAlign: "center" }}
-            >
-              <Typography variant="h3">6</Typography>
-            </Paper>
-          </div>
-        </Slider>
-      </Paper>
-    </Container>
+    <>
+      <Typography
+        variant="h2"
+        style={{
+          fontSize: "48px",
+          lineHeight: "60px",
+          fontWeight: 500,
+          textAlign: "center",
+          marginTop: 100,
+          marginBottom: 50,
+        }}
+      >
+        Our Partner
+      </Typography>
+      <Grid container spacing={2} justifyContent="center">
+        {partners.map((partner, index) => (
+          <Grid
+            item
+            key={index}
+            xs={6}
+            sm={2}
+            style={{ margin: index === 2 ? "0 20px" : "0" }}
+          >
+            {/* Add margin to the third item */}
+            <div style={{ height: "50px", width: "180px" }}>
+              <Image src={partner} alt={`Partner${index + 1}`} />
+            </div>
+          </Grid>
+        ))}
+      </Grid>
+    </>
   );
 };
 

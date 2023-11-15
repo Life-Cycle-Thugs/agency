@@ -115,7 +115,7 @@ function Header() {
                         ...linkStyles, // Apply custom styles
                       }}
                     >
-                      {page.label} 
+                      {page.label}
                     </Typography>
                   </MenuItem>
                 </Link>

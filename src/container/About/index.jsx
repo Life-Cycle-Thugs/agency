@@ -12,6 +12,7 @@ import ArrowDownwardIcon from "@mui/icons-material/ArrowDownward";
 import { makeStyles } from "@mui/styles";
 import Goal from "./Goal";
 import Customer from "../Home/Customer";
+import Partner from "../Home/Partner";
 
 const useStyles = makeStyles((theme) => ({
   circleButton: {
@@ -144,6 +145,7 @@ export default function AboutUS() {
           </Grid>
         </Box>
         <Goal />
+        <Partner/>
         <Customer/>
       </Container>
     </>

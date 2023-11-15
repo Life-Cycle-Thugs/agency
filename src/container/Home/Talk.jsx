@@ -1,5 +1,5 @@
 import * as React from "react";
-import { styled, useTheme } from "@mui/material/styles"; // Import useTheme
+import { styled, useTheme } from "@mui/material/styles";
 import Box from "@mui/material/Box";
 import Paper from "@mui/material/Paper";
 import Grid from "@mui/material/Grid";
@@ -9,24 +9,22 @@ import TalkImg from "../../../public/assets/images/talk.png";
 import Link from "next/link";
 
 const Item = styled(Paper)(({ theme }) => ({
-  // backgroundColor: theme.palette.mode === "dark" ? "#1A2027" : "#fff",
   ...theme.typography.body2,
-  padding: theme.spacing(1),
+  padding: theme.spacing(2),
   textAlign: "left",
   color: theme.palette.text.secondary,
-  boxShadow: "none", // Remove box shadow
-  marginTop: theme.spacing(2), // Add top margin
-  color: "black",
+  boxShadow: "none",
+  marginTop: theme.spacing(2),
 }));
 
 export default function Talk() {
-  const theme = useTheme(); // Access the theme
+  const theme = useTheme();
 
   return (
     <Container>
       <Box sx={{ flexGrow: 1 }}>
-        <Grid container spacing={2}>
-          <Grid item xs={6}>
+        <Grid container spacing={2} justifyContent="center" alignItems="center">
+          <Grid item xs={12} md={6}>
             <Item>
               <Typography
                 variant="h4"
@@ -36,7 +34,6 @@ export default function Talk() {
                   fontWeight: 500,
                 }}
               >
-                {" "}
                 Accelerate your project with a <br /> high-performing team of{" "}
                 <br /> Software Engineers.
               </Typography>
@@ -48,8 +45,6 @@ export default function Talk() {
                   lineHeight: "24px",
                 }}
               >
-                {" "}
-                {/* Use "body2" for paragraph text */}
                 Lorem ipsum dolor sit amet consectetur. Imperdiet enim facilisi
                 aliquam bbr ipsum pretium pellentesque etiam ac ac. Turpis vel
                 sapien fermentum accumsan nisl pellentesque sit pellentesque.
@@ -64,12 +59,16 @@ export default function Talk() {
                   fontSize: "18px",
                 }}
               >
-                <Link style={{textDecoration:'none',color:"#fff"}} href="/contact"> LET'S TALK</Link>
+                <Link
+                  style={{ textDecoration: "none", color: "#fff" }}
+                  href="/contact"
+                >
+                  LET'S TALK
+                </Link>
               </Button>
             </Item>
           </Grid>
-          <Grid xs={2}></Grid>
-          <Grid item xs={4}>
+          <Grid item xs={12} md={6}>
             <Item>
               <Image src={TalkImg} alt="My Image" width={500} height={428} />
             </Item>
