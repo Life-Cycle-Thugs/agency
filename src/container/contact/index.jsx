@@ -1,5 +1,5 @@
 import * as React from "react";
-import { styled } from "@mui/material/styles";
+
 import Paper from "@mui/material/Paper";
 import Grid from "@mui/material/Grid";
 import {
@@ -12,15 +12,16 @@ import {
   Card,
   CardContent,
   IconButton,
+
 } from "@mui/material";
-import { makeStyles } from "@mui/styles";
+import { useForm, Controller } from "react-hook-form";
+import { makeStyles, styled } from "@mui/styles";
 
 import ArrowDownwardIcon from "@mui/icons-material/ArrowDownward";
 import Image from "next/image";
 import call from "../../../public/assets/images/call.png";
 import vec from "../../../public/assets/images/Vector.png";
 import loc from "../../../public/assets/images/loc.png";
-import { useForm, Controller } from "react-hook-form";
 
 const useStyles = makeStyles((theme) => ({
   circleButton: {
@@ -40,26 +41,19 @@ const useStyles = makeStyles((theme) => ({
     color: "black",
   },
 }));
-const Item = styled(Paper)(({ theme }) => ({
-  backgroundColor: theme.palette.mode === "dark" ? "#1A2027" : "#fff",
-  ...theme.typography.body2,
-  padding: theme.spacing(2),
-  textAlign: "center",
-  color: theme.palette.text.secondary,
-}));
 const responsiveCardStyle = {
   maxWidth: 345,
   padding: "25px 10px",
-    background: "#ECEFF4",
-  
+  background: "#ECEFF4",
 };
+
 const scrollToContent = () => {
-  // Smooth scroll to the content section when the button is clicked
   const contentSection = document.getElementById("submit-contact");
   if (contentSection) {
     contentSection.scrollIntoView({ behavior: "smooth" });
   }
 };
+
 const AllProjectItem = styled(Paper)(({ theme }) => ({
   padding: "5px 20px",
   textAlign: "center",
@@ -67,8 +61,10 @@ const AllProjectItem = styled(Paper)(({ theme }) => ({
   background: "#E7EBEB",
   boxShadow: "none",
 }));
+
 export default function Contact() {
     const classes = useStyles();
+
   const {
     handleSubmit,
     control,
@@ -99,11 +95,8 @@ export default function Contact() {
         </Typography>
       </AllProjectItem>
       <div style={{ display: "flex", justifyContent: "center" }}>
-        <IconButton
-          className={classes.circleButton}
-          onClick={scrollToContent} // Scroll to content when button is clicked
-        >
-          <ArrowDownwardIcon className={classes.arrowIcon} />
+        <IconButton className={classes.circleButton} onClick={scrollToContent}>
+          <ArrowDownwardIcon style={{ fontSize: "36px", color: "black" }} />
         </IconButton>
       </div>
       <Container>
@@ -327,6 +320,7 @@ export default function Contact() {
               <Controller
                 name="subject"
                 control={control}
+                
                 defaultValue=""
                 render={({ field }) => (
                   <TextField

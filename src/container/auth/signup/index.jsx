@@ -1,4 +1,5 @@
-import React, { useState } from "react";
+import React from "react";
+import { useForm, Controller } from "react-hook-form";
 import { styled } from "@mui/material/styles";
 import Box from "@mui/material/Box";
 import Paper from "@mui/material/Paper";
@@ -11,8 +12,6 @@ import IconButton from "@mui/material/IconButton";
 import Visibility from "@mui/icons-material/Visibility";
 import VisibilityOff from "@mui/icons-material/VisibilityOff";
 import Button from "@mui/material/Button";
-
-
 import {
   Container,
   FormControlLabel,
@@ -20,14 +19,10 @@ import {
   Switch,
   Typography,
 } from "@mui/material";
-
 import Link from "next/link";
-
-// import signup from "../../public";
 
 const Item = styled(Paper)(({ theme }) => ({
   padding: "80px 100px",
-
   textAlign: "center",
   color: theme.palette.text.secondary,
   border: "1px solid #F2F4F6",
@@ -35,39 +30,17 @@ const Item = styled(Paper)(({ theme }) => ({
   background: "linear-gradient(0deg, #E7EBEB, #E7EBEB) ",
 }));
 
-const FormItem = styled(Paper)(({ theme }) => ({
-  padding: "80px 100px",
-  width: "100%",
-  textAlign: "left",
-  color: theme.palette.text.secondary,
-  border: "1px solid #F2F4F6",
-  borderRadius: 20,
-  background: "white",
-}));
-
 export default function SignUp() {
-  const [values, setValues] = useState({
-    fullName: "",
-    email: "",
-    password: "",
-    confirmPassword: "",
-  });
+  const { control, handleSubmit, watch, setError } = useForm();
 
-  const handleChange = (prop) => (event) => {
-    setValues({ ...values, [prop]: event.target.value });
-  };
-  const [showPassword, setShowPassword] = React.useState(false);
+  const watchPassword = watch("password", "");
+  const watchConfirmPassword = watch("confirmPassword", "");
 
-  const handleClickShowPassword = () => setShowPassword((show) => !show);
-
-  const handleMouseDownPassword = (event) => {
-    event.preventDefault();
-  };
-
-  const handleSubmit = (event) => {
-    event.preventDefault();
+  const onSubmit = (data) => {
     // Add your form submission logic here
+    console.log(data);
   };
+
   return (
     <div style={{ marginBottom: "100px" }}>
       <Container>
@@ -80,108 +53,142 @@ export default function SignUp() {
                   component={"img"}
                   src={"/assets/images/Illustration.png"}
                   alt="signup"
-                  // width={500}
-                  // height={428}
                 />
               </Item>
             </Grid>
             <Grid item xs={12} lg={1}></Grid>
-
             <Grid item lg={4} xs={12}>
-              <FormItem>
+              <>
                 <Box>
                   <Typography
                     style={{ fontSize: "28px", marginBottom: "15px" }}
                   >
-                    {" "}
                     <b>Create your</b> Account
                   </Typography>
-                  <form onSubmit={handleSubmit}>
+                  <form onSubmit={handleSubmit(onSubmit)}>
                     <label htmlFor="">Your Full Name</label>
-                    <TextField
-                      fullWidth
-                      margin="normal"
-                      label=" Enter your full name"
-                      variant="outlined"
-                      required
-                      value={values.fullName}
-                      onChange={handleChange("fullName")}
+                    <Controller
+                      name="fullName"
+                      control={control}
+                      defaultValue=""
+                      render={({ field }) => (
+                        <TextField
+                          fullWidth
+                          margin="normal"
+                          label=" Enter your full name"
+                          variant="outlined"
+                          required
+                          {...field}
+                        />
+                      )}
                     />
                     <label htmlFor="">Your Email</label>
-                    <TextField
-                      fullWidth
-                      margin="normal"
-                      label="Enter your Email"
-                      variant="outlined"
-                      type="email"
-                      required
-                      value={values.email}
-                      onChange={handleChange("email")}
+                    <Controller
+                      name="email"
+                      control={control}
+                      defaultValue=""
+                      render={({ field }) => (
+                        <TextField
+                          fullWidth
+                          margin="normal"
+                          label="Enter your Email"
+                          variant="outlined"
+                          type="email"
+                          required
+                          {...field}
+                        />
+                      )}
                     />
-
                     <br />
-                    <label htmlFor="" style={{ marginTop: "105px" }}>
+                    <label htmlFor="" style={{ marginTop: "15px" }}>
                       Your password
                     </label>
-                    {/* <FormControl> */}
-                    {/* <InputLabel htmlFor="outlined-adornment-password">
-                        Password
-                      </InputLabel> */}
-                    <div style={{ marginTop: 15 }}>
-                      <OutlinedInput
-                        fullWidth
-                        id="outlined-adornment-password"
-                        type={showPassword ? "text" : "password"}
-                        endAdornment={
-                          <InputAdornment position="end">
-                            <IconButton
-                              aria-label="toggle password visibility"
-                              onClick={handleClickShowPassword}
-                              onMouseDown={handleMouseDownPassword}
-                              edge="end"
-                            >
-                              {showPassword ? (
-                                <VisibilityOff />
-                              ) : (
-                                <Visibility />
-                              )}
-                            </IconButton>
-                          </InputAdornment>
-                        }
-                        // label="Password"
-                      />
-                    </div>
-                    <div style={{ marginTop: 15, marginBottom: 15 }}>
-                      <label htmlFor="">Your confirm password</label>
-                      <br />
-                      <br />
-                      <OutlinedInput
-                        fullWidth
-                        id="outlined-adornment-password"
-                        type={showPassword ? "text" : "password"}
-                        endAdornment={
-                          <InputAdornment position="end">
-                            <IconButton
-                              aria-label="toggle password visibility"
-                              onClick={handleClickShowPassword}
-                              onMouseDown={handleMouseDownPassword}
-                              edge="end"
-                            >
-                              {showPassword ? (
-                                <VisibilityOff />
-                              ) : (
-                                <Visibility />
-                              )}
-                            </IconButton>
-                          </InputAdornment>
-                        }
-                        // label="Password"
-                      />
-                    </div>
-                    {/* </FormControl> */}
+                    <Controller
+                      name="password"
+                      control={control}
+                      defaultValue=""
+                      render={({ field }) => (
+                        <div style={{ marginTop: 15 }}>
+                          <OutlinedInput
+                            fullWidth
+                            id="outlined-adornment-password"
+                            type={field.showPassword ? "text" : "password"}
+                            endAdornment={
+                              <InputAdornment position="end">
+                                <IconButton
+                                  aria-label="toggle password visibility"
+                                  onClick={() =>
+                                    field.onChange(!field.showPassword)
+                                  }
+                                  onMouseDown={(e) => {
+                                    e.preventDefault();
+                                  }}
+                                  edge="end"
+                                >
+                                  {field.showPassword ? (
+                                    <VisibilityOff />
+                                  ) : (
+                                    <Visibility />
+                                  )}
+                                </IconButton>
+                              </InputAdornment>
+                            }
+                            {...field}
+                          />
+                        </div>
+                      )}
+                    />
+                    <label htmlFor="" style={{ marginTop: "15px" }}>
+                      Your confirm password
+                    </label>
+                    <Controller
+                      name="confirmPassword"
+                      control={control}
+                      defaultValue=""
+                      render={({ field }) => (
+                        <div style={{ marginTop: 15 }}>
+                          <OutlinedInput
+                            fullWidth
+                            id="outlined-adornment-confirm-password"
+                            type={field.showPassword ? "text" : "password"}
+                            endAdornment={
+                              <InputAdornment position="end">
+                                <IconButton
+                                  aria-label="toggle password visibility"
+                                  onClick={() =>
+                                    field.onChange(!field.showPassword)
+                                  }
+                                  onMouseDown={(e) => {
+                                    e.preventDefault();
+                                  }}
+                                  edge="end"
+                                >
+                                  {field.showPassword ? (
+                                    <VisibilityOff />
+                                  ) : (
+                                    <Visibility />
+                                  )}
+                                </IconButton>
+                              </InputAdornment>
+                            }
+                            {...field}
+                          />
+                        </div>
+                      )}
+                    />
+                    {watchPassword !== watchConfirmPassword && (
+                      <Typography style={{ color: "red" }}>
+                        Passwords do not match
+                      </Typography>
+                    )}
                     <FormControlLabel
-                      value="Remember me"
-                      control={<Switch color="primary" />}
+                      control={
+                        <Switch
+                          color="primary"
+                          {...control}
+                          name="rememberMe"
+                        />
+                      }
                       label="Remember me"
                       labelPlacement="Remember me"
                     />
@@ -207,10 +214,8 @@ export default function SignUp() {
                       </Link>
                     </span>{" "}
                   </p>
-
-                  {/* <CustomButton>Hello</CustomButton> */}
                 </Box>
-              </FormItem>
+              </>
             </Grid>
           </Grid>
         </Box>

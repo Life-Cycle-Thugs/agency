@@ -46,30 +46,45 @@ const StarRating = ({ rating }) => {
 };
 
 const Customer = () => {
-  const [activeIndex, setActiveIndex] = useState(0);
+   const [currentSlideIndex1, setCurrentSlideIndex1] = useState(0);
+   const [currentSlideIndex2, setCurrentSlideIndex2] = useState(0);
 
-  const settings = {
-    dots: true,
-    infinite: true,
-    speed: 500,
-    slidesToShow: 3,
-    slidesToScroll: 1,
-    afterChange: (index) => {
-      if ((index + 1) % 3 === 0) {
-        setActiveIndex(index);
-      }
-    },
-    prevArrow: (
-      <IconButton>
-        <NavigateBeforeIcon />
-      </IconButton>
-    ),
-    nextArrow: (
-      <IconButton>
-        <NavigateNextIcon />
-      </IconButton>
-    ),
-  };
+   const settings = {
+     dots: false,
+     infinite: true,
+     speed: 500,
+     slidesToShow: 3,
+     slidesToScroll: 1,
+     afterChange: (index) => {
+       setCurrentSlideIndex1(index);
+       setCurrentSlideIndex2(index);
+     },
+   };
+
+  // const [activeIndex, setActiveIndex] = useState(0);
+
+  // const settings = {
+  //   dots: true,
+  //   infinite: true,
+  //   speed: 500,
+  //   slidesToShow: 3,
+  //   slidesToScroll: 1,
+  //   afterChange: (index) => {
+  //     if ((index + 1) % 3 === 0) {
+  //       setActiveIndex(index);
+  //     }
+  //   },
+  //   prevArrow: (
+  //     <IconButton>
+  //       <NavigateBeforeIcon />
+  //     </IconButton>
+  //   ),
+  //   nextArrow: (
+  //     <IconButton>
+  //       <NavigateNextIcon />
+  //     </IconButton>
+  //   ),
+  // };
 
   const slides = [
     {
@@ -116,7 +131,10 @@ const Customer = () => {
       >
         What Our Customer Say?
       </Typography>
-      <Slider {...settings}>
+      <Slider
+        {...settings}
+        eforeChange={(current, next) => setCurrentSlideIndex1(next)}
+      >
         {slides.map((slide, index) => (
           <StyledCarouselItem key={index}>
             <Grid container spacing={1}>
@@ -143,8 +161,8 @@ const Customer = () => {
                           display: "flex",
                           flexDirection: "row",
                           justifyContent: "center",
-                            alignItems: "center",
-                          marginLeft:"80%"
+                          alignItems: "center",
+                          marginLeft: "80%",
                         }}
                       />
                     </Box>
@@ -157,8 +175,10 @@ const Customer = () => {
                       >
                         {slide.name}
                       </Typography>
-                      <Typography sx={{ textAlign: "center",marginLeft:'30%' }}>
-                        <StarRating rating={slide.rating}  />
+                      <Typography
+                        sx={{ textAlign: "center", marginLeft: "30%" }}
+                      >
+                        <StarRating rating={slide.rating} />
                       </Typography>
                       <Typography variant="body2" color="text.secondary">
                         {slide.speech}
