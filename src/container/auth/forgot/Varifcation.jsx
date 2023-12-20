@@ -69,6 +69,7 @@ export default function Varification() {
             <Button
               type="submit"
               variant="contained"
+              href="/newpassword"
               style={{
                 background: "#F14E4E",
                 padding: "12px 155px",

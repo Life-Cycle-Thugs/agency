@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { useForm, Controller } from "react-hook-form";
 import { styled } from "@mui/material/styles";
 import Box from "@mui/material/Box";
@@ -35,12 +35,23 @@ export default function SignUp() {
 
   const watchPassword = watch("password", "");
   const watchConfirmPassword = watch("confirmPassword", "");
-
+  const togglePasswordVisibility = () => {
+    setShowPassword(!showPassword);
+  };
+  const [showPassword, setShowPassword] = useState(false);
   const onSubmit = (data) => {
-    // Add your form submission logic here
+    // Check if passwords match
+    if (data.password !== data.confirmPassword) {
+      setError("confirmPassword", {
+        type: "manual",
+        message: "Passwords do not match",
+      });
+      return; // Stop form submission
+    }
+
+    // Continue with your form submission logic
     console.log(data);
   };
-
   return (
     <div style={{ marginBottom: "100px" }}>
       <Container>
@@ -100,87 +111,97 @@ export default function SignUp() {
                       )}
                     />
                     <br />
-                    <label htmlFor="" style={{ marginTop: "15px" }}>
-                      Your password
-                    </label>
+
+                    <label htmlFor="">Your Password</label>
                     <Controller
                       name="password"
                       control={control}
                       defaultValue=""
-                      render={({ field }) => (
-                        <div style={{ marginTop: 15 }}>
-                          <OutlinedInput
-                            fullWidth
-                            id="outlined-adornment-password"
-                            type={field.showPassword ? "text" : "password"}
-                            endAdornment={
+                      rules={{
+                        required: "Your password is required",
+                        minLength: {
+                          value: 8,
+                          message: "Password must be at least 8 characters",
+                        },
+                      }}
+                      render={({ field, fieldState }) => (
+                        <TextField
+                          fullWidth
+                          margin="normal"
+                          label="Enter your  password"
+                          variant="outlined"
+                          type={showPassword ? "text" : "password"}
+                          error={!!fieldState.error}
+                          helperText={
+                            fieldState.error ? fieldState.error.message : ""
+                          }
+                          required
+                          {...field}
+                          InputProps={{
+                            endAdornment: (
                               <InputAdornment position="end">
                                 <IconButton
-                                  aria-label="toggle password visibility"
-                                  onClick={() =>
-                                    field.onChange(!field.showPassword)
-                                  }
-                                  onMouseDown={(e) => {
-                                    e.preventDefault();
-                                  }}
+                                  onClick={togglePasswordVisibility}
                                   edge="end"
                                 >
-                                  {field.showPassword ? (
+                                  {showPassword ? (
                                     <VisibilityOff />
                                   ) : (
                                     <Visibility />
                                   )}
                                 </IconButton>
                               </InputAdornment>
-                            }
-                            {...field}
-                          />
-                        </div>
+                            ),
+                          }}
+                        />
                       )}
                     />
-                    <label htmlFor="" style={{ marginTop: "15px" }}>
-                      Your confirm password
-                    </label>
+                    <br />
+
+                    <label htmlFor="">Confirm Password</label>
                     <Controller
                       name="confirmPassword"
                       control={control}
                       defaultValue=""
-                      render={({ field }) => (
-                        <div style={{ marginTop: 15 }}>
-                          <OutlinedInput
-                            fullWidth
-                            id="outlined-adornment-confirm-password"
-                            type={field.showPassword ? "text" : "password"}
-                            endAdornment={
+                      rules={{
+                        required: "Confirm password is required",
+                        validate: (value) =>
+                          value === watchPassword || "Passwords do not match",
+                      }}
+                      render={({ field, fieldState }) => (
+                        <TextField
+                          fullWidth
+                          margin="normal"
+                          label="Confirm your new password"
+                          variant="outlined"
+                          type={showPassword ? "text" : "password"}
+                          error={!!fieldState.error}
+                          helperText={
+                            fieldState.error ? fieldState.error.message : ""
+                          }
+                          required
+                          {...field}
+                          InputProps={{
+                            endAdornment: (
                               <InputAdornment position="end">
                                 <IconButton
-                                  aria-label="toggle password visibility"
-                                  onClick={() =>
-                                    field.onChange(!field.showPassword)
-                                  }
-                                  onMouseDown={(e) => {
-                                    e.preventDefault();
-                                  }}
+                                  onClick={togglePasswordVisibility}
                                   edge="end"
                                 >
-                                  {field.showPassword ? (
+                                  {showPassword ? (
                                     <VisibilityOff />
                                   ) : (
                                     <Visibility />
                                   )}
                                 </IconButton>
                               </InputAdornment>
-                            }
-                            {...field}
-                          />
-                        </div>
+                            ),
+                          }}
+                        />
                       )}
                     />
-                    {watchPassword !== watchConfirmPassword && (
-                      <Typography style={{ color: "red" }}>
-                        Passwords do not match
-                      </Typography>
-                    )}
+                    <br />
+
                     <FormControlLabel
                       control={
                         <Switch

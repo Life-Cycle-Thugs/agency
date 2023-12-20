@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { useForm, Controller } from "react-hook-form";
 import { styled } from "@mui/material/styles";
 import Box from "@mui/material/Box";
@@ -36,6 +36,11 @@ export default function SignIn() {
     handleSubmit,
     formState: { errors },
   } = useForm();
+
+  const togglePasswordVisibility = () => {
+    setShowPassword(!showPassword);
+  };
+  const [showPassword, setShowPassword] = useState(false);
 
   const onSubmit = (data) => {
     // Your form submission logic here
@@ -85,44 +90,54 @@ export default function SignIn() {
                       )}
                     />
                     <br />
-                    <label htmlFor="" style={{ marginTop: "105px" }}>
-                      Your password
-                    </label>
+
+                    <label htmlFor="">Your Password</label>
                     <Controller
-                      name="password"
+                      name="yourPassword"
                       control={control}
                       defaultValue=""
-                      render={({ field }) => (
-                        <div style={{ marginTop: 15 }}>
-                          <OutlinedInput
-                            fullWidth
-                            id="outlined-adornment-password"
-                            type={field.showPassword ? "text" : "password"}
-                            endAdornment={
+                      rules={{
+                        required: "Your password is required",
+                        minLength: {
+                          value: 8,
+                          message: "Password must be at least 8 characters",
+                        },
+                      }}
+                      render={({ field, fieldState }) => (
+                        <TextField
+                          fullWidth
+                          margin="normal"
+                          label="Enter your  password"
+                          variant="outlined"
+                          type={showPassword ? "text" : "password"}
+                          error={!!fieldState.error}
+                          helperText={
+                            fieldState.error ? fieldState.error.message : ""
+                          }
+                          required
+                          {...field}
+                          InputProps={{
+                            endAdornment: (
                               <InputAdornment position="end">
                                 <IconButton
-                                  aria-label="toggle password visibility"
-                                  onClick={() =>
-                                    field.onChange(!field.showPassword)
-                                  }
-                                  onMouseDown={(e) => {
-                                    e.preventDefault();
-                                  }}
+                                  onClick={togglePasswordVisibility}
                                   edge="end"
                                 >
-                                  {field.showPassword ? (
+                                  {showPassword ? (
                                     <VisibilityOff />
                                   ) : (
                                     <Visibility />
                                   )}
                                 </IconButton>
                               </InputAdornment>
-                            }
-                            {...field}
-                          />
-                        </div>
+                            ),
+                          }}
+                        />
                       )}
                     />
+
+                    <br />
+
                     <FormControlLabel
                       control={
                         <Switch
@@ -140,7 +155,7 @@ export default function SignIn() {
                         textAlign: "left",
                         alignItems: "left",
                       }}
-                      href="#"
+                      href="/forgot"
                     >
                       Forgot password
                     </Link>

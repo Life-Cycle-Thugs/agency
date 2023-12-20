@@ -66,6 +66,7 @@ export default function Forgot() {
             <Button
               type="submit"
               variant="contained"
+              href="/varification"
               style={{
                 background: "#F14E4E",
                 padding: "12px 155px",
